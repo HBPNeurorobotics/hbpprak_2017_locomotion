@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<ns1:ExD xmlns:ns1="http://schemas.humanbrainproject.eu/SP10/2014/ExDConfig">
+  <ns1:name>HBP Praktikum Locomotion</ns1:name>
+  <ns1:thumbnail>ExDTemplateLauron.png</ns1:thumbnail>
+  <ns1:description>QWOP with Lauron.</ns1:description>
+  <ns1:timeout>840.0</ns1:timeout>
+  <ns1:maturity>production</ns1:maturity>
+  <ns1:environmentModel src="empty_world.sdf">
+    <ns1:robotPose theta="0.0" ux="0.0" uy="0.0" uz="0.0" x="0.0" y="0.0" z="1.0"/>
+  </ns1:environmentModel>
+  <ns1:bibiConf src="bibi_configuration.bibi"/>
+  <ns1:cameraPose>
+    <ns1:cameraPosition x="4.5" y="0.0" z="1.8"/>
+    <ns1:cameraLookAt x="0.0" y="0.0" z="0.6"/>
+  </ns1:cameraPose>
+</ns1:ExD>
