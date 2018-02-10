@@ -1,0 +1,1483 @@
+<sdf version='1.5'>
+  <model name='lauron'>
+    <pose>0 0 0.8 0 -0 0</pose>
+    <link name='robot_base_link'>
+      <pose>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>-0.0047041 -4.81868e-19 -0.0187383 0 -0 0</pose>
+        <mass>18</mass>
+        <inertia>
+          <ixx>0.127182</ixx>
+          <ixy>4.08016e-20</ixy>
+          <ixz>-0.00317329</ixz>
+          <iyy>0.278404</iyy>
+          <iyz>1.62529e-19</iyz>
+          <izz>0.310305</izz>
+        </inertia>
+      </inertial>
+      <collision name='robot_base_link_collision'>
+        <pose>-0.12 0 0.025 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.85 0.37 0.26</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='robot_base_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://lauron_model/meshes/TORSO_low.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='robot_base_link_visual_robot_base_link_1'>
+        <pose>0.22841 0.0806665 -0.056215 -1.57079 0.785404 0.872672</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://lauron_model/meshes/leg/LEG_CON_low.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='robot_base_link_visual_robot_base_link_2'>
+        <pose>0.22841 -0.0806665 -0.056215 -1.57079 0.785404 -0.872664</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://lauron_model/meshes/leg/LEG_CON_low.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='robot_base_link_visual_robot_base_link_3'>
+        <pose>-0.0673369 0.0962107 -0.056215 -1.57079 0.785404 1.22174</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://lauron_model/meshes/leg/LEG_CON_low.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='robot_base_link_visual_robot_base_link_4'>
+        <pose>-0.0673369 -0.0962107 -0.056215 -1.57079 0.785404 -1.22172</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://lauron_model/meshes/leg/LEG_CON_low.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='robot_base_link_visual_robot_base_link_5'>
+        <pose>-0.20341 0.0806665 -0.056215 -1.57079 0.785404 2.26893</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://lauron_model/meshes/leg/LEG_CON_low.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='robot_base_link_visual_robot_base_link_6'>
+        <pose>-0.20341 -0.0806665 -0.056215 -1.57079 0.785404 -2.26892</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://lauron_model/meshes/leg/LEG_CON_low.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <link name='robot_base_imu_pitch_link'>
+      <pose>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.0001</mass>
+        <inertia>
+          <ixx>0.01</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.01</iyy>
+          <iyz>0</iyz>
+          <izz>0.01</izz>
+        </inertia>
+      </inertial>
+    </link>
+    <joint name='robot_IMU_pitch_joint' type='revolute'>
+      <child>robot_base_imu_pitch_link</child>
+      <parent>robot_base_link</parent>
+      <axis>
+        <xyz>0 -1 0</xyz>
+        <limit>
+          <lower>-3.14</lower>
+          <upper>3.14</upper>
+          <effort>0</effort>
+          <velocity>10</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='robot_base_leveled_link'>
+      <pose>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.0001</mass>
+        <inertia>
+          <ixx>0.01</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.01</iyy>
+          <iyz>0</iyz>
+          <izz>0.01</izz>
+        </inertia>
+      </inertial>
+    </link>
+    <joint name='robot_IMU_roll_joint' type='revolute'>
+      <child>robot_base_leveled_link</child>
+      <parent>robot_base_imu_pitch_link</parent>
+      <axis>
+        <xyz>-1 0 0</xyz>
+        <limit>
+          <lower>-3.14</lower>
+          <upper>3.14</upper>
+          <effort>0</effort>
+          <velocity>10</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='robot_leg0_delta_link'>
+      <pose>0.22841 0.0806665 -0.056215 -2.3562 1.53957e-17 -0.69813</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.01</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.01</iyy>
+          <iyz>0</iyz>
+          <izz>0.01</izz>
+        </inertia>
+      </inertial>
+      <visual name='robot_leg0_delta_link_visual'>
+        <pose>0 0 0.0721 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://lauron_model/meshes/leg/DELTA_low.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='robot_leg0_delta_joint' type='revolute'>
+      <child>robot_leg0_delta_link</child>
+      <parent>robot_base_link</parent>
+      <axis>
+        <xyz>0.454516 0.541673 -0.707111</xyz>
+        <limit>
+          <lower>-1.22173</lower>
+          <upper>1.22173</upper>
+          <effort>100</effort>
+          <velocity>10</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='robot_leg0_alpha_link'>
+      <pose>0.261181 0.119721 -0.107198 -0.7854 -2.20635e-17 -0.69813</pose>
+      <inertial>
+        <pose>0 0.00108614 0 0 -0 0</pose>
+        <mass>1.01</mass>
+        <inertia>
+          <ixx>0.0201191</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.02</iyy>
+          <iyz>5.48977e-24</iyz>
+          <izz>0.0201191</izz>
+        </inertia>
+      </inertial>
+      <visual name='robot_leg0_alpha_link_visual'>
+        <pose>0 0 0 0 -0 1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://lauron_model/meshes/leg/ALPHA_low.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='robot_leg0_alpha_joint' type='revolute'>
+      <child>robot_leg0_alpha_link</child>
+      <parent>robot_leg0_delta_link</parent>
+      <axis>
+        <xyz>0.454519 0.541677 0.707105</xyz>
+        <limit>
+          <lower>-1.22173</lower>
+          <upper>1.22173</upper>
+          <effort>100</effort>
+          <velocity>10</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='robot_leg0_beta_link'>
+      <pose>0.311041 0.179143 -0.184767 1.5708 0.785396 0.872672</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.01</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.01</iyy>
+          <iyz>0</iyz>
+          <izz>0.01</izz>
+        </inertia>
+      </inertial>
+      <collision name='robot_leg0_beta_link_collision'>
+        <pose>0.085 -0.01 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.22 0.12 0.03</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='robot_leg0_beta_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://lauron_model/meshes/leg/BETA_low.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='robot_leg0_beta_joint' type='revolute'>
+      <child>robot_leg0_beta_link</child>
+      <parent>robot_leg0_alpha_link</parent>
+      <axis>
+        <xyz>0.766047 -0.642784 -2.59734e-06</xyz>
+        <limit>
+          <lower>-0.69813</lower>
+          <upper>2.21657</upper>
+          <effort>100</effort>
+          <velocity>10</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='robot_leg0_gamma_link'>
+      <pose>0.379719 0.260991 -0.353695 1.5708 0.785396 0.872672</pose>
+      <inertial>
+        <pose>0.00331683 0 0 0 -0 0</pose>
+        <mass>1.01</mass>
+        <inertia>
+          <ixx>0.02</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0211111</iyy>
+          <iyz>0</iyz>
+          <izz>0.0211111</izz>
+        </inertia>
+      </inertial>
+      <collision name='robot_leg0_gamma_link_collision'>
+        <pose>0.16 0.004 0 0 1.57 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.22</length>
+            <radius>0.03</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <collision name='robot_leg0_gamma_link_collision_robot_leg0_gamma_link_1'>
+        <pose>0.32 0 0 0 -0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.02</radius>
+          </sphere>
+        </geometry>
+      </collision>
+      <visual name='robot_leg0_gamma_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://lauron_model/meshes/leg/GAMMA_low.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='robot_leg0_gamma_joint' type='revolute'>
+      <child>robot_leg0_gamma_link</child>
+      <parent>robot_leg0_beta_link</parent>
+      <axis>
+        <xyz>0.766047 -0.642784 -2.59734e-06</xyz>
+        <limit>
+          <lower>-2.6529</lower>
+          <upper>0.24435</upper>
+          <effort>100</effort>
+          <velocity>10</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='robot_leg1_delta_link'>
+      <pose>0.22841 -0.0806665 -0.056215 -2.3562 -3.16587e-17 -2.44347</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.01</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.01</iyy>
+          <iyz>0</iyz>
+          <izz>0.01</izz>
+        </inertia>
+      </inertial>
+      <visual name='robot_leg1_delta_link_visual'>
+        <pose>0 0 0.0721 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://lauron_model/meshes/leg/DELTA_low.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='robot_leg1_delta_joint' type='revolute'>
+      <child>robot_leg1_delta_link</child>
+      <parent>robot_base_link</parent>
+      <axis>
+        <xyz>0.454515 -0.541674 -0.707111</xyz>
+        <limit>
+          <lower>-1.22173</lower>
+          <upper>1.22173</upper>
+          <effort>100</effort>
+          <velocity>10</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='robot_leg1_alpha_link'>
+      <pose>0.261181 -0.119721 -0.107198 -0.7854 2.45301e-17 -2.44347</pose>
+      <inertial>
+        <pose>0 0.00108614 0 0 -0 0</pose>
+        <mass>1.01</mass>
+        <inertia>
+          <ixx>0.0201191</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.02</iyy>
+          <iyz>5.48977e-24</iyz>
+          <izz>0.0201191</izz>
+        </inertia>
+      </inertial>
+      <visual name='robot_leg1_alpha_link_visual'>
+        <pose>0 0 0 0 -0 1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://lauron_model/meshes/leg/ALPHA_low.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='robot_leg1_alpha_joint' type='revolute'>
+      <child>robot_leg1_alpha_link</child>
+      <parent>robot_leg1_delta_link</parent>
+      <axis>
+        <xyz>0.454518 -0.541678 0.707105</xyz>
+        <limit>
+          <lower>-1.22173</lower>
+          <upper>1.22173</upper>
+          <effort>100</effort>
+          <velocity>10</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='robot_leg1_beta_link'>
+      <pose>0.311041 -0.179143 -0.184767 1.5708 0.785396 -0.872664</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.01</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.01</iyy>
+          <iyz>0</iyz>
+          <izz>0.01</izz>
+        </inertia>
+      </inertial>
+      <collision name='robot_leg1_beta_link_collision'>
+        <pose>0.085 -0.01 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.22 0.12 0.03</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='robot_leg1_beta_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://lauron_model/meshes/leg/BETA_low.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='robot_leg1_beta_joint' type='revolute'>
+      <child>robot_leg1_beta_link</child>
+      <parent>robot_leg1_alpha_link</parent>
+      <axis>
+        <xyz>-0.766046 -0.642786 -2.59734e-06</xyz>
+        <limit>
+          <lower>-0.69813</lower>
+          <upper>2.21657</upper>
+          <effort>100</effort>
+          <velocity>10</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='robot_leg1_gamma_link'>
+      <pose>0.379719 -0.26099 -0.353695 1.5708 0.785396 -0.872664</pose>
+      <inertial>
+        <pose>0.00331683 0 0 0 -0 0</pose>
+        <mass>1.01</mass>
+        <inertia>
+          <ixx>0.02</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0211111</iyy>
+          <iyz>0</iyz>
+          <izz>0.0211111</izz>
+        </inertia>
+      </inertial>
+      <collision name='robot_leg1_gamma_link_collision'>
+        <pose>0.16 0.004 0 0 1.57 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.22</length>
+            <radius>0.03</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <collision name='robot_leg1_gamma_link_collision_robot_leg1_gamma_link_1'>
+        <pose>0.32 0 0 0 -0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.02</radius>
+          </sphere>
+        </geometry>
+      </collision>
+      <visual name='robot_leg1_gamma_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://lauron_model/meshes/leg/GAMMA_low.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='robot_leg1_gamma_joint' type='revolute'>
+      <child>robot_leg1_gamma_link</child>
+      <parent>robot_leg1_beta_link</parent>
+      <axis>
+        <xyz>-0.766046 -0.642786 -2.59734e-06</xyz>
+        <limit>
+          <lower>-2.6529</lower>
+          <upper>0.24435</upper>
+          <effort>100</effort>
+          <velocity>10</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='robot_leg2_delta_link'>
+      <pose>-0.0673369 0.0962107 -0.056215 -2.3562 1.35525e-18 -0.349066</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.01</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.01</iyy>
+          <iyz>0</iyz>
+          <izz>0.01</izz>
+        </inertia>
+      </inertial>
+      <visual name='robot_leg2_delta_link_visual'>
+        <pose>0 0 0.0721 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://lauron_model/meshes/leg/DELTA_low.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='robot_leg2_delta_joint' type='revolute'>
+      <child>robot_leg2_delta_link</child>
+      <parent>robot_base_link</parent>
+      <axis>
+        <xyz>0.241844 0.664459 -0.707111</xyz>
+        <limit>
+          <lower>-1.22173</lower>
+          <upper>1.22173</upper>
+          <effort>100</effort>
+          <velocity>10</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='robot_leg2_alpha_link'>
+      <pose>-0.0499 0.144118 -0.107198 -0.7854 -1.23667e-17 -0.349066</pose>
+      <inertial>
+        <pose>0 0.00108614 0 0 -0 0</pose>
+        <mass>1.01</mass>
+        <inertia>
+          <ixx>0.0201191</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.02</iyy>
+          <iyz>5.48977e-24</iyz>
+          <izz>0.0201191</izz>
+        </inertia>
+      </inertial>
+      <visual name='robot_leg2_alpha_link_visual'>
+        <pose>0 0 0 0 -0 1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://lauron_model/meshes/leg/ALPHA_low.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='robot_leg2_alpha_joint' type='revolute'>
+      <child>robot_leg2_alpha_link</child>
+      <parent>robot_leg2_delta_link</parent>
+      <axis>
+        <xyz>0.241845 0.664464 0.707105</xyz>
+        <limit>
+          <lower>-1.22173</lower>
+          <upper>1.22173</upper>
+          <effort>100</effort>
+          <velocity>10</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='robot_leg2_beta_link'>
+      <pose>-0.0233696 0.21701 -0.184767 1.5708 0.785396 1.22174</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.01</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.01</iyy>
+          <iyz>0</iyz>
+          <izz>0.01</izz>
+        </inertia>
+      </inertial>
+      <collision name='robot_leg2_beta_link_collision'>
+        <pose>0.085 -0.01 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.22 0.12 0.03</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='robot_leg2_beta_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://lauron_model/meshes/leg/BETA_low.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='robot_leg2_beta_joint' type='revolute'>
+      <child>robot_leg2_beta_link</child>
+      <parent>robot_leg2_alpha_link</parent>
+      <axis>
+        <xyz>0.939693 -0.342018 -2.59734e-06</xyz>
+        <limit>
+          <lower>-0.69813</lower>
+          <upper>2.21657</upper>
+          <effort>100</effort>
+          <velocity>10</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='robot_leg2_gamma_link'>
+      <pose>0.0131725 0.317411 -0.353695 1.5708 0.785396 1.22174</pose>
+      <inertial>
+        <pose>0.00331683 0 0 0 -0 0</pose>
+        <mass>1.01</mass>
+        <inertia>
+          <ixx>0.02</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0211111</iyy>
+          <iyz>0</iyz>
+          <izz>0.0211111</izz>
+        </inertia>
+      </inertial>
+      <collision name='robot_leg2_gamma_link_collision'>
+        <pose>0.16 0.004 0 0 1.57 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.22</length>
+            <radius>0.03</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <collision name='robot_leg2_gamma_link_collision_robot_leg2_gamma_link_1'>
+        <pose>0.32 0 0 0 -0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.02</radius>
+          </sphere>
+        </geometry>
+      </collision>
+      <visual name='robot_leg2_gamma_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://lauron_model/meshes/leg/GAMMA_low.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='robot_leg2_gamma_joint' type='revolute'>
+      <child>robot_leg2_gamma_link</child>
+      <parent>robot_leg2_beta_link</parent>
+      <axis>
+        <xyz>0.939693 -0.342018 -2.59734e-06</xyz>
+        <limit>
+          <lower>-2.6529</lower>
+          <upper>0.24435</upper>
+          <effort>100</effort>
+          <velocity>10</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='robot_leg3_delta_link'>
+      <pose>-0.0673369 -0.0962107 -0.056215 -2.3562 9.52743e-18 -2.79253</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.01</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.01</iyy>
+          <iyz>0</iyz>
+          <izz>0.01</izz>
+        </inertia>
+      </inertial>
+      <visual name='robot_leg3_delta_link_visual'>
+        <pose>0 0 0.0721 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://lauron_model/meshes/leg/DELTA_low.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='robot_leg3_delta_joint' type='revolute'>
+      <child>robot_leg3_delta_link</child>
+      <parent>robot_base_link</parent>
+      <axis>
+        <xyz>0.241844 -0.664459 -0.707111</xyz>
+        <limit>
+          <lower>-1.22173</lower>
+          <upper>1.22173</upper>
+          <effort>100</effort>
+          <velocity>10</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='robot_leg3_alpha_link'>
+      <pose>-0.0498999 -0.144118 -0.107198 -0.7854 -2.85281e-17 -2.79253</pose>
+      <inertial>
+        <pose>0 0.00108614 0 0 -0 0</pose>
+        <mass>1.01</mass>
+        <inertia>
+          <ixx>0.0201191</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.02</iyy>
+          <iyz>5.48977e-24</iyz>
+          <izz>0.0201191</izz>
+        </inertia>
+      </inertial>
+      <visual name='robot_leg3_alpha_link_visual'>
+        <pose>0 0 0 0 -0 1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://lauron_model/meshes/leg/ALPHA_low.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='robot_leg3_alpha_joint' type='revolute'>
+      <child>robot_leg3_alpha_link</child>
+      <parent>robot_leg3_delta_link</parent>
+      <axis>
+        <xyz>0.241846 -0.664464 0.707105</xyz>
+        <limit>
+          <lower>-1.22173</lower>
+          <upper>1.22173</upper>
+          <effort>100</effort>
+          <velocity>10</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='robot_leg3_beta_link'>
+      <pose>-0.0233695 -0.21701 -0.184767 1.5708 0.785396 -1.22172</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.01</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.01</iyy>
+          <iyz>0</iyz>
+          <izz>0.01</izz>
+        </inertia>
+      </inertial>
+      <collision name='robot_leg3_beta_link_collision'>
+        <pose>0.085 -0.01 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.22 0.12 0.03</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='robot_leg3_beta_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://lauron_model/meshes/leg/BETA_low.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='robot_leg3_beta_joint' type='revolute'>
+      <child>robot_leg3_beta_link</child>
+      <parent>robot_leg3_alpha_link</parent>
+      <axis>
+        <xyz>-0.939691 -0.342024 -2.59734e-06</xyz>
+        <limit>
+          <lower>-0.69813</lower>
+          <upper>2.21657</upper>
+          <effort>100</effort>
+          <velocity>10</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='robot_leg3_gamma_link'>
+      <pose>0.0131742 -0.31741 -0.353695 1.5708 0.785396 -1.22172</pose>
+      <inertial>
+        <pose>0.00331683 0 0 0 -0 0</pose>
+        <mass>1.01</mass>
+        <inertia>
+          <ixx>0.02</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0211111</iyy>
+          <iyz>0</iyz>
+          <izz>0.0211111</izz>
+        </inertia>
+      </inertial>
+      <collision name='robot_leg3_gamma_link_collision'>
+        <pose>0.16 0.004 0 0 1.57 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.22</length>
+            <radius>0.03</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <collision name='robot_leg3_gamma_link_collision_robot_leg3_gamma_link_1'>
+        <pose>0.32 0 0 0 -0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.02</radius>
+          </sphere>
+        </geometry>
+      </collision>
+      <visual name='robot_leg3_gamma_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://lauron_model/meshes/leg/GAMMA_low.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='robot_leg3_gamma_joint' type='revolute'>
+      <child>robot_leg3_gamma_link</child>
+      <parent>robot_leg3_beta_link</parent>
+      <axis>
+        <xyz>-0.939691 -0.342024 -2.59734e-06</xyz>
+        <limit>
+          <lower>-2.6529</lower>
+          <upper>0.24435</upper>
+          <effort>100</effort>
+          <velocity>10</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='robot_leg4_delta_link'>
+      <pose>-0.20341 0.0806665 -0.056215 -2.3562 4.17011e-17 0.698132</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.01</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.01</iyy>
+          <iyz>0</iyz>
+          <izz>0.01</izz>
+        </inertia>
+      </inertial>
+      <visual name='robot_leg4_delta_link_visual'>
+        <pose>0 0 0.0721 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://lauron_model/meshes/leg/DELTA_low.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='robot_leg4_delta_joint' type='revolute'>
+      <child>robot_leg4_delta_link</child>
+      <parent>robot_base_link</parent>
+      <axis>
+        <xyz>-0.454517 0.541672 -0.707111</xyz>
+        <limit>
+          <lower>-1.22173</lower>
+          <upper>1.22173</upper>
+          <effort>100</effort>
+          <velocity>10</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='robot_leg4_alpha_link'>
+      <pose>-0.236181 0.119721 -0.107198 -0.7854 5.98751e-17 0.698132</pose>
+      <inertial>
+        <pose>0 0.00108614 0 0 -0 0</pose>
+        <mass>1.01</mass>
+        <inertia>
+          <ixx>0.0201191</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.02</iyy>
+          <iyz>5.48977e-24</iyz>
+          <izz>0.0201191</izz>
+        </inertia>
+      </inertial>
+      <visual name='robot_leg4_alpha_link_visual'>
+        <pose>0 0 0 0 -0 1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://lauron_model/meshes/leg/ALPHA_low.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='robot_leg4_alpha_joint' type='revolute'>
+      <child>robot_leg4_alpha_link</child>
+      <parent>robot_leg4_delta_link</parent>
+      <axis>
+        <xyz>-0.45452 0.541676 0.707105</xyz>
+        <limit>
+          <lower>-1.22173</lower>
+          <upper>1.22173</upper>
+          <effort>100</effort>
+          <velocity>10</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='robot_leg4_beta_link'>
+      <pose>-0.286041 0.179143 -0.184767 1.5708 0.785396 2.26893</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.01</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.01</iyy>
+          <iyz>0</iyz>
+          <izz>0.01</izz>
+        </inertia>
+      </inertial>
+      <collision name='robot_leg4_beta_link_collision'>
+        <pose>0.085 -0.01 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.22 0.12 0.03</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='robot_leg4_beta_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://lauron_model/meshes/leg/BETA_low.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='robot_leg4_beta_joint' type='revolute'>
+      <child>robot_leg4_beta_link</child>
+      <parent>robot_leg4_alpha_link</parent>
+      <axis>
+        <xyz>0.766043 0.64279 -2.59734e-06</xyz>
+        <limit>
+          <lower>-0.69813</lower>
+          <upper>2.21657</upper>
+          <effort>100</effort>
+          <velocity>10</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='robot_leg4_gamma_link'>
+      <pose>-0.35472 0.26099 -0.353695 1.5708 0.785396 2.26893</pose>
+      <inertial>
+        <pose>0.00331683 0 0 0 -0 0</pose>
+        <mass>1.01</mass>
+        <inertia>
+          <ixx>0.02</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0211111</iyy>
+          <iyz>0</iyz>
+          <izz>0.0211111</izz>
+        </inertia>
+      </inertial>
+      <collision name='robot_leg4_gamma_link_collision'>
+        <pose>0.16 0.004 0 0 1.57 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.22</length>
+            <radius>0.03</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <collision name='robot_leg4_gamma_link_collision_robot_leg4_gamma_link_1'>
+        <pose>0.32 0 0 0 -0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.02</radius>
+          </sphere>
+        </geometry>
+      </collision>
+      <visual name='robot_leg4_gamma_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://lauron_model/meshes/leg/GAMMA_low.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='robot_leg4_gamma_joint' type='revolute'>
+      <child>robot_leg4_gamma_link</child>
+      <parent>robot_leg4_beta_link</parent>
+      <axis>
+        <xyz>0.766043 0.64279 -2.59734e-06</xyz>
+        <limit>
+          <lower>-2.6529</lower>
+          <upper>0.24435</upper>
+          <effort>100</effort>
+          <velocity>10</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='robot_leg5_delta_link'>
+      <pose>-0.20341 -0.0806665 -0.056215 -2.3562 -8.68853e-17 2.44346</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.01</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.01</iyy>
+          <iyz>0</iyz>
+          <izz>0.01</izz>
+        </inertia>
+      </inertial>
+      <visual name='robot_leg5_delta_link_visual'>
+        <pose>0 0 0.0721 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://lauron_model/meshes/leg/DELTA_low.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='robot_leg5_delta_joint' type='revolute'>
+      <child>robot_leg5_delta_link</child>
+      <parent>robot_base_link</parent>
+      <axis>
+        <xyz>-0.454517 -0.541672 -0.707111</xyz>
+        <limit>
+          <lower>-1.22173</lower>
+          <upper>1.22173</upper>
+          <effort>100</effort>
+          <velocity>10</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='robot_leg5_alpha_link'>
+      <pose>-0.236181 -0.119721 -0.107198 -0.7854 -6.63261e-17 2.44346</pose>
+      <inertial>
+        <pose>0 0.00108614 0 0 -0 0</pose>
+        <mass>1.01</mass>
+        <inertia>
+          <ixx>0.0201191</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.02</iyy>
+          <iyz>5.48977e-24</iyz>
+          <izz>0.0201191</izz>
+        </inertia>
+      </inertial>
+      <visual name='robot_leg5_alpha_link_visual'>
+        <pose>0 0 0 0 -0 1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://lauron_model/meshes/leg/ALPHA_low.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='robot_leg5_alpha_joint' type='revolute'>
+      <child>robot_leg5_alpha_link</child>
+      <parent>robot_leg5_delta_link</parent>
+      <axis>
+        <xyz>-0.454521 -0.541676 0.707105</xyz>
+        <limit>
+          <lower>-1.22173</lower>
+          <upper>1.22173</upper>
+          <effort>100</effort>
+          <velocity>10</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='robot_leg5_beta_link'>
+      <pose>-0.286041 -0.179143 -0.184767 1.5708 0.785396 -2.26892</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.01</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.01</iyy>
+          <iyz>0</iyz>
+          <izz>0.01</izz>
+        </inertia>
+      </inertial>
+      <collision name='robot_leg5_beta_link_collision'>
+        <pose>0.085 -0.01 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.22 0.12 0.03</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='robot_leg5_beta_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://lauron_model/meshes/leg/BETA_low.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='robot_leg5_beta_joint' type='revolute'>
+      <child>robot_leg5_beta_link</child>
+      <parent>robot_leg5_alpha_link</parent>
+      <axis>
+        <xyz>-0.766046 0.642786 -2.59734e-06</xyz>
+        <limit>
+          <lower>-0.69813</lower>
+          <upper>2.21657</upper>
+          <effort>100</effort>
+          <velocity>10</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='robot_leg5_gamma_link'>
+      <pose>-0.354719 -0.26099 -0.353695 1.5708 0.785396 -2.26892</pose>
+      <inertial>
+        <pose>0.00331683 0 0 0 -0 0</pose>
+        <mass>1.01</mass>
+        <inertia>
+          <ixx>0.02</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0211111</iyy>
+          <iyz>0</iyz>
+          <izz>0.0211111</izz>
+        </inertia>
+      </inertial>
+      <collision name='robot_leg5_gamma_link_collision'>
+        <pose>0.16 0.004 0 0 1.57 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.22</length>
+            <radius>0.03</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <collision name='robot_leg5_gamma_link_collision_robot_leg5_gamma_link_1'>
+        <pose>0.32 0 0 0 -0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.02</radius>
+          </sphere>
+        </geometry>
+      </collision>
+      <visual name='robot_leg5_gamma_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://lauron_model/meshes/leg/GAMMA_low.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='robot_leg5_gamma_joint' type='revolute'>
+      <child>robot_leg5_gamma_link</child>
+      <parent>robot_leg5_beta_link</parent>
+      <axis>
+        <xyz>-0.766046 0.642786 -2.59734e-06</xyz>
+        <limit>
+          <lower>-2.6529</lower>
+          <upper>0.24435</upper>
+          <effort>100</effort>
+          <velocity>10</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='robot_ptu_pan_link'>
+      <pose>0.2 0 0.15 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.1</mass>
+        <inertia>
+          <ixx>0.01</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.01</iyy>
+          <iyz>0</iyz>
+          <izz>0.01</izz>
+        </inertia>
+      </inertial>
+      <collision name='robot_ptu_pan_link_collision'>
+        <pose>-0.02 0 0.045 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.06 0.06 0.08</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='robot_ptu_pan_link_collision_robot_ptu_pan_link_1'>
+        <pose>-0.01 0 0.1 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.05 0.25 0.04</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='robot_ptu_pan_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://lauron_model/meshes/HEAD_low.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='robot_ptu_pan_joint' type='revolute'>
+      <child>robot_ptu_pan_link</child>
+      <parent>robot_base_link</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0</upper>
+          <effort>200</effort>
+          <velocity>2</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='robot_ptu_tilt_link'>
+      <pose>0.2 0 0.2505 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0.01175 0 -0 0</pose>
+        <mass>0.4</mass>
+        <inertia>
+          <ixx>0.0409585</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0402505</iyy>
+          <iyz>0</iyz>
+          <izz>0.040708</izz>
+        </inertia>
+      </inertial>
+      <velocity_decay/>
+      <sensor name='left_camera' type='camera'>
+        <update_rate>30</update_rate>
+        <camera name='camera'>
+          <horizontal_fov>1.047</horizontal_fov>
+          <image>
+            <width>320</width>
+            <height>240</height>
+          </image>
+          <clip>
+            <near>0.1</near>
+            <far>100</far>
+          </clip>
+          <noise>
+            <type>gaussian</type>
+            <mean>0</mean>
+            <stddev>0.007</stddev>
+          </noise>
+        </camera>
+        <plugin name='robot_left_camera' filename='libgazebo_ros_camera.so'>
+          <alwaysOn>true</alwaysOn>
+          <updateRate>30.0</updateRate>
+          <cameraName>left_camera</cameraName>
+          <imageTopicName>robot_left_camera</imageTopicName>
+          <cameraInfoTopicName>robot_left_camera_info</cameraInfoTopicName>
+          <frameName>robot_left_camera_link</frameName>
+          <hackBaseline>0.07</hackBaseline>
+          <distortionK1>0.0</distortionK1>
+          <distortionK2>0.0</distortionK2>
+          <distortionK3>0.0</distortionK3>
+          <distortionT1>0.0</distortionT1>
+          <distortionT2>0.0</distortionT2>
+        </plugin>
+        <pose>0 0.0595 -0.004 0 -0 0</pose>
+      </sensor>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <self_collide>0</self_collide>
+      <sensor name='right_camera' type='camera'>
+        <update_rate>30</update_rate>
+        <camera name='camera'>
+          <horizontal_fov>1.047</horizontal_fov>
+          <image>
+            <width>320</width>
+            <height>240</height>
+          </image>
+          <clip>
+            <near>0.1</near>
+            <far>100</far>
+          </clip>
+          <noise>
+            <type>gaussian</type>
+            <mean>0</mean>
+            <stddev>0.007</stddev>
+          </noise>
+        </camera>
+        <plugin name='robot_right_camera' filename='libgazebo_ros_camera.so'>
+          <alwaysOn>true</alwaysOn>
+          <updateRate>30.0</updateRate>
+          <cameraName>right_camera</cameraName>
+          <imageTopicName>robot_right_camera</imageTopicName>
+          <cameraInfoTopicName>robot_right_camera_info</cameraInfoTopicName>
+          <frameName>robot_right_camera_link</frameName>
+          <hackBaseline>0.07</hackBaseline>
+          <distortionK1>0.0</distortionK1>
+          <distortionK2>0.0</distortionK2>
+          <distortionK3>0.0</distortionK3>
+          <distortionT1>0.0</distortionT1>
+          <distortionT2>0.0</distortionT2>
+        </plugin>
+        <pose>0 -0.0595 -0.004 0 -0 0</pose>
+      </sensor>
+    </link>
+    <joint name='robot_ptu_tilt_joint' type='revolute'>
+      <child>robot_ptu_tilt_link</child>
+      <parent>robot_ptu_pan_link</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0</upper>
+          <effort>200</effort>
+          <velocity>2</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <static>0</static>
+    <plugin name='gazebo_ros_control' filename='libgazebo_ros_control.so'>
+      <robotNamespace>/</robotNamespace>
+      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+    </plugin>
+  </model>
+</sdf>
