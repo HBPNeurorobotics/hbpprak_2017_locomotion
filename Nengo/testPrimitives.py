@@ -1,3 +1,5 @@
+__author__ = 'Jacqueline Rutschke'
+
 import nengo
 import numpy as np
 import motionPrimitives
