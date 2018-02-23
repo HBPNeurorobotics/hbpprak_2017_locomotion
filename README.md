@@ -68,9 +68,11 @@ QWOP is a 2008 ragdoll-based browser video game created by Bennett Foddy, former
 
 Because videos say more than thousands words so simply watch this video to understand how the QWOP-Game works:
 
-<a href="https://youtu.be/VJeJtK7Q2kk">
-	<img src = "https://i.ytimg.com/vi/VJeJtK7Q2kk/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLBd2qFK1FEnBHqWqUwDe6z2W_FvyQ" width="400px" />
-</a>
+<p align="center">
+  <a href="https://youtu.be/VJeJtK7Q2kk">
+  	<img src = "https://i.ytimg.com/vi/VJeJtK7Q2kk/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLBd2qFK1FEnBHqWqUwDe6z2W_FvyQ" width="400px" />
+  </a>
+</p>
 
 ### Gameplay and reception
 Players play as an athlete named "Qwop", who is participating in a 100-meter event at the Olympic Games. Using only the Q, W, O and P keys, players must control the movement of the athlete's legs to make the character move forward while trying to avoid falling over. The Q and  W keys each drive one of the runner's thighs, while the O and P keys work the runner's calves. The Q key drives the runner's right thigh forward and left thigh backward, and the W key also affects the thighs and does the opposite. The O and P keys work in the same way as the Q and W keys, but with the runner's calves. The actual amount of movement of a joint is affected by the resistance due to forces from gravity and inertia placed upon it. [1]
@@ -81,22 +83,25 @@ Though the objective of QWOP is simple, the game, ever since it was released, ha
 To get you started, here some LAURON basics you will need to know about.
 We implemented several motion primitives which can be used like the primitives behind the Q, W, O and P keys. Therefore we use the following joints:
 
-<img src="IPythonTutorials/img/DSC_0407.jpg" width="400px" />
+<p align="center">
+  <img src="IPythonTutorials/img/DSC_0407.jpg" width="400px" />
+</p>
 
 We defined the following primitives:
 1. Swing motion: The Swing primitive will return values for the alpha and delta joints in order to swing the leg forward and backward.
 2. Lift leg: The Lift Leg primitive will return values for the beta and gamma joints in order to lift the leg/foot.
 3. Stance: The Stance primitive will return values for the beta joints in order to stance into the ground to lift Laurons body up.
 
-
+<p align="center">
   <img src="IPythonTutorials/img/swing.gif" width="200px" />
 
   <img src="IPythonTutorials/img/liftleg.gif" width="200px"/>
 
   <img src="IPythonTutorials/img/leg_stance.gif" width="200px" />
+</p>
 
 You can use each motion primitive with a stimulus in [0,1]. We will map that value to one of the corresponding joint-bounds:
-<div style="margin: 15px auto; display: table;">
+<p align="center">
 
   |           |   **swing**   | **lift leg**| **stance** |
   |-----------|:-------------:|:-----------:|:----------:|
@@ -105,12 +110,13 @@ You can use each motion primitive with a stimulus in [0,1]. We will map that val
   | **gamma** |       /       | -3.14 to -2 |      /     |
   | **delta** | -0.25 to 0.25 |      /      |      /     |
 
-</div>
+</p>
 
 These values will be sent to the NRP via rospy and Nengo. It is possible to send each primitive to each leg. Since it is also important to know which leg is which, here is a graphic. This will be important because you will need different values for different legs.
 
-
-<img src="IPythonTutorials/img/lauron_enum.png" width="300px" />
+<p align="center">
+  <img src="IPythonTutorials/img/lauron_enum.png" width="300px" />
+</p>
 
 ## ROS
 The [Robot Operating System (ROS)](http://www.ros.org) is a flexible framework for writing robot software. It is a collection of tools, libraries, and conventions that aim to simplify the task of creating complex and robust robot behavior across a wide variety of robotic platforms. [5]
@@ -205,8 +211,9 @@ The Nengo GUI is a web-based interface for designing and running Nengo models. T
 
 To access the GUI, you use a web browser like Google Chrome or Firefox. You should see a depiction of the network on the left panel, and a code editor on the right panel.
 
-
-<img src="http://appliedbrainresearch.com/img/gui-03.gif" width="400px" />
+<p align="center">
+  <img src="http://appliedbrainresearch.com/img/gui-03.gif" width="400px" />
+</p>
 
 The network illustration on the left panel is interactive. You can drag to move the network objects, scroll with the mouse to zoom in and out, and right-click on objects to display plots that will update in real time as the model simulates. [3]
 
@@ -221,7 +228,9 @@ For more information please read the [GUI documentation](https://github.com/neng
 # Usage of the frameworks
 We provide several motion primitives. If your learning procedure uses these primitives in the right order and with the right stimuli LAURON should perform a fast and stable gait. Possible gaits are tripod, ripple or wave but most of the automated learning procedures perform a free gait following the reward function.
 
+<p align="center">
   <a href="https://www.youtube.com/watch?v=bPzRKIHpLs8"><img src="https://i.ytimg.com/vi/bPzRKIHpLs8/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLC8rX3YSzLmaqCEjUytCMdApxlFnA" width="400px"/></a>
+</p>
 
 If you don't want to use our motion primitives you may want to take a look at alternative methods for walking like the [cruse rules](https://www.researchgate.net/figure/The-rules-of-leg-coordination-that-have-been-described-for-stick-insect-walking-1-swing_fig1_8910313) for six-legged insects. For insect walking behaviour, six coordination rules have been described:
 1. swing movement inhibits start of swing movement
@@ -231,9 +240,9 @@ If you don't want to use our motion primitives you may want to take a look at al
 5. increased load prolongs stance movement, increased resistance increases force (‘‘coactivation’’)
 6. treading-on-tarsus (TOT) reflex; grey arrows : contralateral (intrasegmental) influences (‘‘c’’ in the text), black arrows : ipsilateral influences (‘‘i’’ in the text); lFL left front leg, lML left midle leg, lHL left hind leg, rFL right front leg, rML right middle leg, rHL right hind leg [6]
 
-
+<p align="center">
   <img src="https://www.researchgate.net/profile/Bettina_Blaesing/publication/8910313/figure/fig1/AS:277731708293141@1443227807450/The-rules-of-leg-coordination-that-have-been-described-for-stick-insect-walking-1-swing.png" width="400px"/>
-
+</p>
 
 No matter which approach you use you should implement your solution using python and Nengo. Therefore you have to import `motionPrimitives.py` and create an motion primitive object using:
 ```python
