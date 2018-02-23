@@ -68,11 +68,9 @@ QWOP is a 2008 ragdoll-based browser video game created by Bennett Foddy, former
 
 Because videos say more than thousands words so simply watch this video to understand how the QWOP-Game works:
 
-<div style="margin: 15px auto; display: table; width: 400px">
-  <a href="https://youtu.be/VJeJtK7Q2kk">
-		<img src = "https://i.ytimg.com/vi/VJeJtK7Q2kk/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLBd2qFK1FEnBHqWqUwDe6z2W_FvyQ" />
-	</a>
-</div>
+<a href="https://youtu.be/VJeJtK7Q2kk">
+	<img src = "https://i.ytimg.com/vi/VJeJtK7Q2kk/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLBd2qFK1FEnBHqWqUwDe6z2W_FvyQ" align="center" width="400"/>
+</a>
 
 ### Gameplay and reception
 Players play as an athlete named "Qwop", who is participating in a 100-meter event at the Olympic Games. Using only the Q, W, O and P keys, players must control the movement of the athlete's legs to make the character move forward while trying to avoid falling over. The Q and  W keys each drive one of the runner's thighs, while the O and P keys work the runner's calves. The Q key drives the runner's right thigh forward and left thigh backward, and the W key also affects the thighs and does the opposite. The O and P keys work in the same way as the Q and W keys, but with the runner's calves. The actual amount of movement of a joint is affected by the resistance due to forces from gravity and inertia placed upon it. [1]
@@ -83,9 +81,7 @@ Though the objective of QWOP is simple, the game, ever since it was released, ha
 To get you started, here some LAURON basics you will need to know about.
 We implemented several motion primitives which can be used like the primitives behind the Q, W, O and P keys. Therefore we use the following joints:
 
-<div style="margin: 15px auto; display: table; max-width: 400px">
-  <img src="IPythonTutorials/img/DSC_0407.jpg" />
-</div>
+<img src="IPythonTutorials/img/DSC_0407.jpg" align="center" width="400"/>
 
 We defined the following primitives:
 1. Swing motion: The Swing primitive will return values for the alpha and delta joints in order to swing the leg forward and backward.
@@ -94,15 +90,15 @@ We defined the following primitives:
 
 <div style="overflow: auto; margin-bottom: 30px">
   <div style="width: 30%; float: left; margin: 1.5%">
-    <img src="IPythonTutorials/img/swing.gif" />
+    <img src="IPythonTutorials/img/swing.gif" align="center" width="200"/>
   </div>
 
   <div style="width: 30%; float: left; margin: 1.5%">
-    <img src="IPythonTutorials/img/liftleg.gif" />
+    <img src="IPythonTutorials/img/liftleg.gif" align="center" width="200"/>
   </div>
 
   <div style="width: 30%; float: left; margin: 1.5%">
-    <img src="IPythonTutorials/img/leg_stance.gif" />
+    <img src="IPythonTutorials/img/leg_stance.gif" align="center" width="200"/>
   </div>
 </div>
 You can use each motion primitive with a stimulus in [0,1]. We will map that value to one of the corresponding joint-bounds:
