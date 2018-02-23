@@ -81,7 +81,7 @@ Though the objective of QWOP is simple, the game, ever since it was released, ha
 To get you started, here some LAURON basics you will need to know about.
 We implemented several motion primitives which can be used like the primitives behind the Q, W, O and P keys. Therefore we use the following joints:
 
-<img src="IPythonTutorials/img/DSC_0407.jpg" width="400px" display="block" margin="15px auto" />
+<img src="IPythonTutorials/img/DSC_0407.jpg" width="400px" align="middle" />
 
 We defined the following primitives:
 1. Swing motion: The Swing primitive will return values for the alpha and delta joints in order to swing the leg forward and backward.
