@@ -2,6 +2,7 @@
 Title: "Locomtion Challenge for the NRP"
 Author: "Locomotion Committee"
 Date: "12.08.2018"
+Version: "1.2"
 ---
 
 # Table of Contents
@@ -284,7 +285,28 @@ nengo testPrimitives.py
 
 
 # Known issues
-- You might need to start the experiment, then restart it again in order for lauron to stand and not sack to the ground
+- You might need to start the experiment, then restart it again in order for lauron to stand and not sack to the ground. If your machine is too slow, the fist call to the `simple_move_robot.py` transfer function may come to late. In that case you can simply use another deadline value inside that transfer function.
+- If you want to increase the friction of the ground you can do so. Therefore you have to modify the *empty environment* model. First copy the model into a new folder:
+```
+cp -r $HBP/Models/empty_world $HBP/Models/empty_world_highfriction
+```
+Then modify `$HBP/Models/empty_world_highfriction/empty_world.sdf` and add the following after line 35:
+```
+<surface>
+   <friction>
+     <ode>
+       <mu>10.0</mu>
+       <mu2>10.0</mu2>
+     </ode>
+   </friction>
+ </surface>
+```
+Then add `empty_world_highfriction` to the list of models in `_rpmbuild/models.txt`. Finally execute `$HBP/Models/create-symlinks.sh` to update the symlinks and change
+`<environmentModel src="empty_world/empty_world.sdf">`
+to
+`<environmentModel src="empty_world_highfriction/empty_world.sdf">`
+in your experiment `.exc` file.
+
 
 # References
 [1] https://en.wikipedia.org/wiki/QWOP (last visited 12.02.2018)
