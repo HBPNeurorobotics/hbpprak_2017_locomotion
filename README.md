@@ -115,7 +115,7 @@ You can use each motion primitive with a stimulus in [0,1]. We will map that val
 These values will be sent to the NRP via rospy and Nengo. It is possible to send each primitive to each leg. Since it is also important to know which leg is which, here is a graphic. This will be important because you will need different values for different legs.
 
 <p align="center">
-  <img src="IPythonTutorials/img/lauron_enum.png" width="300px" />
+  <img src="IPythonTutorials/img/lauron_enum.png" width="500px" />
 </p>
 
 ## ROS
