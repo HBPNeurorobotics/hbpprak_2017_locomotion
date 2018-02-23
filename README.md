@@ -109,9 +109,8 @@ You can use each motion primitive with a stimulus in [0,1]. We will map that val
 
 These values will be sent to the NRP via rospy and Nengo. It is possible to send each primitive to each leg. Since it is also important to know which leg is which, here is a graphic. This will be important because you will need different values for different legs.
 
-<div style="margin: 15px auto; display: table; max-width: 300px">
-  <img src="IPythonTutorials/img/lauron_enum.png" />
-</div>
+
+<img src="IPythonTutorials/img/lauron_enum.png" width="300px" />
 
 ## ROS
 The [Robot Operating System (ROS)](http://www.ros.org) is a flexible framework for writing robot software. It is a collection of tools, libraries, and conventions that aim to simplify the task of creating complex and robust robot behavior across a wide variety of robotic platforms. [5]
@@ -206,9 +205,8 @@ The Nengo GUI is a web-based interface for designing and running Nengo models. T
 
 To access the GUI, you use a web browser like Google Chrome or Firefox. You should see a depiction of the network on the left panel, and a code editor on the right panel.
 
-<div style="margin: 15px auto; display: table; max-width: 400px">
-  <img src="http://appliedbrainresearch.com/img/gui-03.gif" />
-</div>
+
+<img src="http://appliedbrainresearch.com/img/gui-03.gif" width="400px" />
 
 The network illustration on the left panel is interactive. You can drag to move the network objects, scroll with the mouse to zoom in and out, and right-click on objects to display plots that will update in real time as the model simulates. [3]
 
@@ -223,9 +221,7 @@ For more information please read the [GUI documentation](https://github.com/neng
 # Usage of the frameworks
 We provide several motion primitives. If your learning procedure uses these primitives in the right order and with the right stimuli LAURON should perform a fast and stable gait. Possible gaits are tripod, ripple or wave but most of the automated learning procedures perform a free gait following the reward function.
 
-<div style="margin: 15px auto; display: table;">
-  <a href="https://www.youtube.com/watch?v=bPzRKIHpLs8"><img src="https://i.ytimg.com/vi/bPzRKIHpLs8/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLC8rX3YSzLmaqCEjUytCMdApxlFnA" /></a>
-</div>
+  <a href="https://www.youtube.com/watch?v=bPzRKIHpLs8"><img src="https://i.ytimg.com/vi/bPzRKIHpLs8/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLC8rX3YSzLmaqCEjUytCMdApxlFnA" width="400px"/></a>
 
 If you don't want to use our motion primitives you may want to take a look at alternative methods for walking like the [cruse rules](https://www.researchgate.net/figure/The-rules-of-leg-coordination-that-have-been-described-for-stick-insect-walking-1-swing_fig1_8910313) for six-legged insects. For insect walking behaviour, six coordination rules have been described:
 1. swing movement inhibits start of swing movement
@@ -235,9 +231,9 @@ If you don't want to use our motion primitives you may want to take a look at al
 5. increased load prolongs stance movement, increased resistance increases force (‘‘coactivation’’)
 6. treading-on-tarsus (TOT) reflex; grey arrows : contralateral (intrasegmental) influences (‘‘c’’ in the text), black arrows : ipsilateral influences (‘‘i’’ in the text); lFL left front leg, lML left midle leg, lHL left hind leg, rFL right front leg, rML right middle leg, rHL right hind leg [6]
 
-<div style="margin: 15px auto 45px auto; display: table; max-width: 400px">
-  <img src="https://www.researchgate.net/profile/Bettina_Blaesing/publication/8910313/figure/fig1/AS:277731708293141@1443227807450/The-rules-of-leg-coordination-that-have-been-described-for-stick-insect-walking-1-swing.png" />
-</div>
+
+  <img src="https://www.researchgate.net/profile/Bettina_Blaesing/publication/8910313/figure/fig1/AS:277731708293141@1443227807450/The-rules-of-leg-coordination-that-have-been-described-for-stick-insect-walking-1-swing.png" width="400px"/>
+
 
 No matter which approach you use you should implement your solution using python and Nengo. Therefore you have to import `motionPrimitives.py` and create an motion primitive object using:
 ```python
