@@ -68,8 +68,8 @@ QWOP is a 2008 ragdoll-based browser video game created by Bennett Foddy, former
 
 Because videos say more than thousands words so simply watch this video to understand how the QWOP-Game works:
 
-<div style="margin: 15px auto; display: table;">
-  <a href="https://youtu.be/VJeJtK7Q2kk" >
+<div style="margin: 15px auto; display: table; width: 400px">
+  <a href="https://youtu.be/VJeJtK7Q2kk">
 		<img src = "https://i.ytimg.com/vi/VJeJtK7Q2kk/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLBd2qFK1FEnBHqWqUwDe6z2W_FvyQ" />
 	</a>
 </div>
