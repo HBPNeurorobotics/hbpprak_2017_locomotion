@@ -69,7 +69,7 @@ QWOP is a 2008 ragdoll-based browser video game created by Bennett Foddy, former
 Because videos say more than thousands words so simply watch this video to understand how the QWOP-Game works:
 
 <a href="https://youtu.be/VJeJtK7Q2kk">
-	<img src = "https://i.ytimg.com/vi/VJeJtK7Q2kk/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLBd2qFK1FEnBHqWqUwDe6z2W_FvyQ" align="center" width="400"/>
+	<img src = "https://i.ytimg.com/vi/VJeJtK7Q2kk/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLBd2qFK1FEnBHqWqUwDe6z2W_FvyQ" align="middle" width="400"/>
 </a>
 
 ### Gameplay and reception
@@ -81,26 +81,21 @@ Though the objective of QWOP is simple, the game, ever since it was released, ha
 To get you started, here some LAURON basics you will need to know about.
 We implemented several motion primitives which can be used like the primitives behind the Q, W, O and P keys. Therefore we use the following joints:
 
-<img src="IPythonTutorials/img/DSC_0407.jpg" align="center" width="400"/>
+<img src="IPythonTutorials/img/DSC_0407.jpg" align="middle" width="400"/>
 
 We defined the following primitives:
 1. Swing motion: The Swing primitive will return values for the alpha and delta joints in order to swing the leg forward and backward.
 2. Lift leg: The Lift Leg primitive will return values for the beta and gamma joints in order to lift the leg/foot.
 3. Stance: The Stance primitive will return values for the beta joints in order to stance into the ground to lift Laurons body up.
 
-<div style="overflow: auto; margin-bottom: 30px">
-  <div style="width: 30%; float: left; margin: 1.5%">
-    <img src="IPythonTutorials/img/swing.gif" align="center" width="200"/>
-  </div>
+<div>
+  <img src="IPythonTutorials/img/swing.gif" align="left" width="200"/>
 
-  <div style="width: 30%; float: left; margin: 1.5%">
-    <img src="IPythonTutorials/img/liftleg.gif" align="center" width="200"/>
-  </div>
+  <img src="IPythonTutorials/img/liftleg.gif" align="middle" width="200"/>
 
-  <div style="width: 30%; float: left; margin: 1.5%">
-    <img src="IPythonTutorials/img/leg_stance.gif" align="center" width="200"/>
-  </div>
+  <img src="IPythonTutorials/img/leg_stance.gif" align="right" width="200"/>
 </div>
+
 You can use each motion primitive with a stimulus in [0,1]. We will map that value to one of the corresponding joint-bounds:
 <div style="margin: 15px auto; display: table;">
 
